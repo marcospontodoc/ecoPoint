@@ -3,7 +3,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 @Entity
-public class EmpresaEnvia {
+public class EmpresaGeradora {
 @Id
 private Integer id;
 private String nome;
@@ -11,10 +11,10 @@ private String cnpj;
 private String endereco;
 private String telefone;
   
-public EmpresaEnvia() {
+public EmpresaGeradora() {
 }
 
-public EmpresaEnvia(Integer id, String nome, String cnpj, String endereco, String telefone) {
+public EmpresaGeradora(Integer id, String nome, String cnpj, String endereco, String telefone) {
     this.id = id;
     this.nome = nome;
     this.cnpj = cnpj;

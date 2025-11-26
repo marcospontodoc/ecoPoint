@@ -6,7 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 @Entity
-public class EmpresaRecebe {
+public class EmpresaColetora {
     @Id
     private Integer id;
     private String nome;
@@ -16,10 +16,10 @@ public class EmpresaRecebe {
     private String descricao;
     private boolean anexaDoc;
   
-    public EmpresaRecebe() {
+    public EmpresaColetora() {
     }
 
-    public EmpresaRecebe(Integer id, String nome, String endereco, LocalTime horarioFuncionamento, String telefone, String descricao, Boolean anexaDoc) {
+    public EmpresaColetora(Integer id, String nome, String endereco, LocalTime horarioFuncionamento, String telefone, String descricao, Boolean anexaDoc) {
     this.id = id;
     this.nome = nome;
     this.endereco = endereco;
