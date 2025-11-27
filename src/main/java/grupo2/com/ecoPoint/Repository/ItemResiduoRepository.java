@@ -3,10 +3,9 @@ package grupo2.com.ecoPoint.Repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import grupo2.com.ecoPoint.Model.Entity.EmpresaGeradora;
+import grupo2.com.ecoPoint.Model.Entity.ItemResiduo;
 
 @Repository
-public interface EmpresaGeradoraRepository extends JpaRepository<EmpresaGeradora, Long> {
-
-    
+public interface ItemResiduoRepository extends JpaRepository<ItemResiduo, Long> {
 }
+
