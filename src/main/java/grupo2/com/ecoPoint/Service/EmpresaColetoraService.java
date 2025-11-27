@@ -2,6 +2,7 @@ package grupo2.com.ecoPoint.Service;
 
 import java.util.List;
 
+import org.hibernate.cache.spi.support.AbstractReadWriteAccess.Item;
 import org.springframework.stereotype.Service;
 
 import grupo2.com.ecoPoint.Model.Entity.EmpresaColetora;
@@ -12,9 +13,15 @@ public class EmpresaColetoraService {
 
     private final EmpresaColetoraRepository empresaColetoraRepository;
 
-
-    public EmpresaColetoraService(EmpresaColetoraRepository empresaColetoraRepository) {
+    
+    public EmpresaColetoraService(EmpresaColetoraRepository empresaColetoraRepository,  List<Long> idsItens) {
         this.empresaColetoraRepository = empresaColetoraRepository;
+    
+    }
+
+    public List<EmpresaColetora> buscarPorItem(Long itemId) {
+        return empresaColetoraRepository.findByItensQueRecebe_Id(itemId);
+    
     }
 
     //GET
@@ -23,7 +30,7 @@ public class EmpresaColetoraService {
     }
 
     // GET BY ID
-    public EmpresaColetora getEmpresaColetoraById(Integer id) {
+    public EmpresaColetora getEmpresaColetoraById(Long id) {
         return empresaColetoraRepository.findEmpresaColetoraById(id);       
     }
 
@@ -33,7 +40,7 @@ public class EmpresaColetoraService {
     }
 
     // UPDATE
-    public EmpresaColetora atualizarEmpresaColetora(Integer id, EmpresaColetora novaEmpresaColetora) {
+    public EmpresaColetora atualizarEmpresaColetora(Long id, EmpresaColetora novaEmpresaColetora) {
         EmpresaColetora empresaColetora = empresaColetoraRepository.findEmpresaColetoraById(id);
 
      if (empresaColetora == null) {
@@ -45,7 +52,7 @@ public class EmpresaColetoraService {
         empresaColetora.setHorarioFuncionamento(novaEmpresaColetora.getHorarioFuncionamento());
         empresaColetora.setTelefone(novaEmpresaColetora.getTelefone());
         empresaColetora.setDescricao(novaEmpresaColetora.getDescricao());
-        empresaColetora.setAnexaDoc(novaEmpresaColetora.getAnexaDoc());
+
 
         return empresaColetoraRepository.save(empresaColetora);
     };
