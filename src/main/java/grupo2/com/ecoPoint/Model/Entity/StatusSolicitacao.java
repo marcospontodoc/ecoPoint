@@ -4,6 +4,7 @@ public enum StatusSolicitacao { /* lista de itens dentro da solicitação */
     PENDENTE,
     ACEITA,
     RECUSADA,
-    CONCLUIDA
+    COLETADA,
+    FINALIZADA
 }
 
