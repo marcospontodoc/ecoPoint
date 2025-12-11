@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import grupo2.com.ecoPoint.Model.Entity.Certificado;
 import grupo2.com.ecoPoint.Model.Entity.EmpresaColetora;
 import grupo2.com.ecoPoint.Model.Entity.EmpresaGeradora;
@@ -14,7 +15,6 @@ import grupo2.com.ecoPoint.Repository.EmpresaColetoraRepository;
 import grupo2.com.ecoPoint.Repository.EmpresaGeradoraRepository;
 import grupo2.com.ecoPoint.Repository.ItemResiduoRepository;
 import grupo2.com.ecoPoint.Repository.SolicitacaoRepository;
-import jakarta.persistence.EntityNotFoundException;
 import jakarta.persistence.EntityNotFoundException;
 
 @Service
@@ -145,6 +145,10 @@ public Solicitacao adicionarCertificado(Long solicitacaoId, byte[] arquivo, Stri
 
         return solicitacaoRepository.save(solicitacao);
         
+    }
+
+    public void deletarSolicitacao(Long id) {
+        solicitacaoRepository.deleteById(id);
     }
 
 }
