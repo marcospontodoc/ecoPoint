@@ -3,7 +3,10 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,12 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.http.ResponseEntity;
+
 import grupo2.com.ecoPoint.Model.Entity.EmpresaColetora;
 import grupo2.com.ecoPoint.Model.Entity.Solicitacao;
 import grupo2.com.ecoPoint.Service.SolicitacaoService;
 import grupo2.com.ecoPoint.dto.SolicitacaoDTO;
-import org.springframework.http.MediaType;
 
 
 
@@ -103,6 +105,12 @@ public class SolicitacaoController {
     @PostMapping("/coletoras-por-itens")
     public List<EmpresaColetora> buscarColetorasPorItens(@RequestBody List<Long> itens) {
     return solicitacaoService.buscarColetorasPorItens(itens);
+}
+
+    @DeleteMapping("/{id}")
+    public void deletarSolicitacao(@PathVariable Long id) {
+        solicitacaoService.deletarSolicitacao(id);
+
 }
 
 }
